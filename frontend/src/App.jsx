@@ -1,21 +1,23 @@
-import { Routes, Route } from "react-router";
-import HomePage from "./pages/HomePage"
-import CreatePage from "./pages/CreatePage"
-import QuestDetailPage from "./pages/QuestDetailPage"
-import toast from "react-hot-toast";
-
+import { Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CreatePage from "./pages/CreatePage";
+import QuestDetailPage from "./pages/QuestDetailPage";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
-  <div className="relative h-full w-full">
-      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_60%,#00FF9D40_100%)]" />
-    <Routes>
-      <Route path="/" element={< HomePage /> }/>
-      <Route path="/create" element={< CreatePage /> }/>
-      <Route path="/quest/:id" element={< QuestDetailPage /> }/>
-    </Routes>
+    <div className="relative h-full w-full">
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/create" element={<CreatePage />} />
+        <Route path="/quest/:id" element={<QuestDetailPage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </div>
-    );
+  );
 };
 
 export default App;

@@ -6,13 +6,13 @@ import toast from "react-hot-toast";
 
 const QuestCard = ({ quest, setQuests }) => {
   const handleDelete = async (e, id) => {
-    e.preventDefault(); // get rid of the navigation behaviour
+    e.preventDefault(); 
 
     if (!window.confirm("Are you sure you want to delete this quest?")) return;
 
     try {
       await api.delete(`/quests/${id}`);
-      setQuests((prev) => prev.filter((quest) => quest._id !== id)); // get rid of the deleted one
+      setQuests((prev) => prev.filter((quest) => quest._id !== id)); 
       toast.success("Quest deleted successfully");
     } catch (error) {
       console.log("Error in handleDelete", error);

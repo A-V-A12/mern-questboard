@@ -10,10 +10,10 @@ const redis = Redis.fromEnv();
 const pong = await redis.ping();
 console.log("Redis ping:", pong);
 
-//ratelimiter that allows 100 requests per minute
+
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(10, "20 s"),
+  limiter: Ratelimit.slidingWindow(20, "60 s"),
 });
 
 export default ratelimit;
